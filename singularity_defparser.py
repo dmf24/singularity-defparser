@@ -51,7 +51,7 @@ def continueline(trimline):
     return trimline.endswith('\\')
 
 def get_section_name(line):
-    return line[line.index('%'):].split(' ')[0]
+    return line[line.index('%')+1:].split(' ')[0]
 
 def parsefile(filename):
     txt = open(filename, 'r').readlines()
