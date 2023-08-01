@@ -89,6 +89,7 @@ def parsefile(filename):
                 results['sections'].setdefault(current_section, [])
             else:
                 results['sections'][current_section].append(line)
+    return results
         
 def validate(results):
     returncode = 0
