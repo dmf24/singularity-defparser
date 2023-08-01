@@ -1,0 +1,24 @@
+BootStrap: library
+From: ubuntu:22.04
+
+%post
+    echo "deb http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse" > /etc/apt/sources.list
+    echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb http://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse" >> /etc/apt/sources.list
+    echo "deb http://archive.canonical.com/ubuntu/ jammy partner" >> /etc/apt/sources.list
+    echo "deb-src http://archive.canonical.com/ubuntu/ jammy partner" >> /etc/apt/sources.list
+    apt-get -y update
+    apt-get install -y aptitude git emacs rsync
+    apt-get install -y debianutils
+    apt-get -y upgrade
+
+%environment
+    export LC_ALL=C
+
+%labels
+    Author dmf24
