@@ -103,6 +103,9 @@ def validate(results):
             returncode = returncode | 2
     return returncode
 
+def validate_def_file(filepath):
+    return validate(parsefile(filepath))
+
 def usage():
     print('%s <singularity_definition_file>' % sys.argv[0])
     print()
@@ -118,6 +121,6 @@ if __name__ == '__main__':
             sys.stderr.write('Warning: to get usage, run script with no arguments.\n')
         if len(sys.argv) > 2:
             sys.stderr.write('Warning: multiple arguments given, only the first argument will be processed.\n')
-        sys.exit(validate(parsefile(sys.argv[1])))
+        sys.exit(validate_def_file(sys.argv[1]))
     else:
         usage()
